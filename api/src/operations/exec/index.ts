@@ -1,10 +1,10 @@
 import { defineOperationApi } from '@directus/utils';
 import { randUuid } from '@ngneat/falso';
 import axios from 'axios';
-import { createRequire } from 'node:module';
+// import { createRequire } from 'node:module';
 
-const require = createRequire(import.meta.url);
-const ivm = require('isolated-vm');
+// const require = createRequire(import.meta.url);
+// const ivm = require('isolated-vm');
 
 type Options = {
 	code: string;
@@ -14,9 +14,9 @@ type Options = {
  * A helper for making the logs prettier.
  * The logger prints arrays with their indices but this looks "bad" when you have only one argument.
  */
-function unpackArgs(args: any[]) {
-	return args.length === 1 ? args[0] : args;
-}
+// function unpackArgs(args: any[]) {
+// 	return args.length === 1 ? args[0] : args;
+// }
 
 // export default defineOperationApi<Options>({
 // 	id: 'exec',
@@ -73,7 +73,7 @@ export default defineOperationApi<Options>({
 	id: 'exec',
 	handler: async ({ code }, { data, env, logger, database, services, accountability }) => {
 		const func = eval(`(${code})`);
-		const t = await func({ data, env, database, accountability, services, randUuid, axios });
+		const t = await func({ data, env, database, accountability, services, randUuid, axios, logger });
 		// const churchId = await database.table('directus_roles').first('church_id').where('id', data.$accountability.role);
 		return t;
 	},
