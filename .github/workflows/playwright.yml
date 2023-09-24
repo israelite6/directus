@@ -20,4 +20,4 @@ jobs:
         run: docker build . --file Dockerfile --tag israelite7/t-s:5
 
       - name: Docker Push
-        run: docker push israelite7/t-s:4
+        run: docker push israelite7/t-s:5
