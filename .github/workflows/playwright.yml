@@ -17,7 +17,7 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Build  Docker image
-        run: docker build . --file Dockerfile --tag israelite7/t-s:4
+        run: docker build . --file Dockerfile --tag israelite7/t-s:5
 
       - name: Docker Push
         run: docker push israelite7/t-s:4
